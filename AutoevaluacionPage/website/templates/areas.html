@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block title %}Areas{% endblock %} {% block content %}
+
+<div class="card card-body">
+    Crear Area
+    <form method="POST">
+        <div class="form-group">
+            <input type="text" name="nombre_area" placeholder="Nombre Area" class="form-control" required>
+        </div>
+        </br>
+        Seleccionar el SubGrupo del Area:
+        </br>
+        <div>
+            {{ subgrupos.csrf_token }}
+            {{ subgrupos.opts(class_="form-select",required='required') }}
+        </div>
+        </br>
+        <div class="form-group">
+            <input type="number" name="orden" placeholder="Orden" class="form-control" required>
+        </div>
+        </br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Crear Area</button>
+        </div>
+    </form>
+</div>
+</br>
+<div class="card card-body">
+    Areas
+    <div class="col-md-7">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <td>Area</td>
+                    <td>Subgrupo</td>
+                    <td>Orden</td>
+                    <td>Fecha Creación</td>
+                    <td>Eliminar/Editar Area</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for area in areas %}
+                    <tr>
+                        <td>{{ area.nombre_area }}</td>
+                        <td>{{ area.subgrupos.nombre_subgrupo }}</td>
+                        <td>{{ area.orden }}</td>
+                        <td>{{ area.fecha_creacion }}</td>
+                        <td>
+							<a href="/editar_area/{{area.id}}" class="btn btn-secondary">Editar</a>
+							<a href="/delete-area/{{area.id}}" class="btn btn-danger btn-delete">Eliminar</a>
+						</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %} 

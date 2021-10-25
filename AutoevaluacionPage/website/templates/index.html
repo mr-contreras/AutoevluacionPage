@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Iniciar Test{% endblock %} {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  
+  <div class="login-page">
+    <div class="form" style="text-align:center;">
+      <form class="login-form" method="POST">
+        <br>
+        <p class="text-muted">
+          Ingrese su nombre completo para dar inicio al Test.
+        </p>
+        <br>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Nombre Completo"/>
+        <br>
+        <a href="/test"><button class="btn btn-primary btn-lg">Iniciar Test</button></a>
+        <br>
+      </form>
+    </div>
+  </div>
+  
+</body>
+</html>
+
+{% endblock %} 

@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Editar Area{% endblock %} {% block content %}
+
+<div>
+	<center><div><strong><h2>Editar Area</h2></strong></div></center>
+	<div class="card card-body">
+
+		<form action="/update_area/{{area.id}}" method="POST">
+			<div class="form-group">
+				Area
+				<input type="text" name="nombre_area" placeholder="Area" value="{{ area.nombre_area }}" class="form-control">
+			</div>
+			</br>
+			<div class="form-group">
+				SubGrupo
+				{{ subgrupos.csrf_token }}
+        		{{ subgrupos.opts(class_="form-select") }}
+			</div>
+			</br>
+			<div class="form-group">
+				<input type="number" name="orden" placeholder="Orden" class="form-control" required>
+			</div>
+			</br>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success btn-block">Guardar</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %}Opciones{% endblock %} {% block content %}
+
+{% block header %}Opciones de {{ preguntas.pregunta_descripcion }}{% endblock %} 
+<div class="card card-body">
+    Crear Opcion
+    <form method="POST">
+        <div class="form-group">
+            <input type="text" name="opcion" placeholder="Opcion" class="form-control" required>
+        </div>
+        </br>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="correcta" id="correcta">
+            <label class="form-check-label" for="correcta">
+                Correcta
+            </label>
+        </div>
+        </br>
+        <div class="form-group">
+            <input type="number" name="orden" placeholder="Orden" class="form-control" required>
+        </div>
+        </br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Crear Pregunta</button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="card card-body">
+    Opciones
+    <div class="col-md-7">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <td>Opcion</td>
+                    <td>Correcta</td>
+                    <td>Orden</td>
+                    <td>Eliminar</td>
+                    <td>Fecha Creacion</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for opcion in opciones %}
+                    <tr>
+                        <td>{{ opcion.opcion }}</td>
+                        <td>{{ opcion.correcta }}</td>
+                        <td>{{ opcion.orden }}</td>
+                        <td>
+							<a href="/delete-opcion/{{opcion.id}}" class="btn btn-danger btn-delete">Eliminar</a>
+						</td>
+                        <td>{{ opcion.fecha_creacion }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <a href="/preguntas" class="btn btn-secondary">Regresar a Preguntas</a>
+</div>
+
+{% endblock %} 

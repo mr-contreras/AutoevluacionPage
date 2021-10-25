@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}SubGrupos{% endblock %} {% block content %}
+
+<div class="card card-body">
+    Crear SubGrupo
+    </br>
+    <form method="POST">
+        <div class="form-group">
+            <input type="text" name="nombre_subgrupo" placeholder="Nombre SubGrupo" class="form-control" required>
+        </div>
+        </br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Crear SubGrupo</button>
+        </div>
+
+    </form>
+</div>
+<br>
+<div class="card card-body">
+    SubGrupos
+    <div class="col-md-7">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Fecha Creación</td>
+                    <td>Eliminar SubGrupo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subgrupo in subgrupos %}
+                    <tr>
+                        <td>{{ subgrupo.nombre_subgrupo }}</td>
+                        <td>{{ subgrupo.fecha_creacion }}</td>
+                        <td>
+							<a href="/delete-subgrupo/{{subgrupo.id}}" class="btn btn-danger btn-delete">Eliminar</a>
+						</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %} 

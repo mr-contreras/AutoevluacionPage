@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Iniciar Sesión{% endblock %} {% block content %}
+
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" method="POST">
+            <div >
+                </br>
+                Ingrese sus credenciales
+                </br>
+                </br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="username">Usuario</span>
+                    <input type="text"  name="username" id="username" class="form-control" aria-label="Sizing example input" aria-describedby="username">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="password">Contraseña</span>
+                    <input type="password"  name="password" id="password" class="form-control" aria-label="Sizing example input" aria-describedby="password">
+                </div>
+            </div>
+            </br>
+            <button type="submit" class="btn btn-primary">Inicial Sesion</button>
+            <br>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %} 
